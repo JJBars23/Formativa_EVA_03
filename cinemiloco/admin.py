@@ -5,6 +5,8 @@ from .models import Pelicula, Genero, tickets
 @admin.register(Pelicula)
 class PeliculaAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'genero', 'precio', 'disponible')
+    readonly_fields = ('miniatura',)
+    fields = ('titulo', 'miniatura', 'imagen')
 
     @admin.display(description='Vista previa')
     def miniatura(self, obj):
